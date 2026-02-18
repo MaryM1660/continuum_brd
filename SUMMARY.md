@@ -10,6 +10,8 @@
 * [Target Users](product-definition/target-users.md)
 * [MVP Scope](product-definition/mvp-scope.md)
 * [Core Concept](product-definition/core-concept.md)
+* [Success Metrics](product-definition/success-metrics.md)
+* [Notifications Strategy](product-definition/notifications.md)
 
 ## Architecture
 
