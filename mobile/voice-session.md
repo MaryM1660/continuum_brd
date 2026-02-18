@@ -4,7 +4,7 @@
 
 The voice session is the core interaction on mobile. It's a real-time conversation between the user and an AI career coach. The coach asks questions, the user answers, and structured career data is extracted in the background.
 
----
+***
 
 ## Session Lifecycle
 
@@ -50,51 +50,54 @@ The voice session is the core interaction on mobile. It's a real-time conversati
    Summary screen shown to user
 ```
 
----
+***
 
 ## The Talk Screen
 
 The main UI during a session:
 
 ```
-┌─────────────────────────────────────┐
-│                                      │
-│     [Coach name / avatar]            │
+┌──────────────────────────────────────┐
 │                                      │
 │  ┌─────────────────────────────────┐ │
-│  │  Live transcript or waveform    │ │
-│  │  visualization                  │ │
+│  │            Waveform             │ │
 │  └─────────────────────────────────┘ │
 │                                      │
-│     Coach's current question:        │
 │  ┌─────────────────────────────────┐ │
-│  │  "What was the specific impact  │ │
-│  │   of that project? Any numbers  │ │
-│  │   you can share?"               │ │
+│  │  "Do you want me to start?"     │ │  ← Optional, only when needed
 │  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │ Yes, please                     │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │ I have a topic                  │ │
+│  └─────────────────────────────────┘ │                                  
+│                                      │
+│                                      │
+│                                      │
 │                                      │
 │           ┌───────────┐              │
-│           │  ●  MIC   │              │  ← Primary CTA (large, pulsing when active)
+│[⏸ Pause] │  ●  MIC   │ [⏹ End] │    │  ← Primary CTA (large, pulsing when talking)
 │           └───────────┘              │
-│                                      │
-│    [⏸ Pause]  [📄 Teleprompter]  [⏹ End] │
-└─────────────────────────────────────┘
+└──────────────────────────────────────┘
 ```
 
 **States of the mic button:**
-- Idle: static button, "Tap to start"
-- Recording: pulsing animation + audio waveform
-- Coach speaking: different animation (listening state)
-- Processing: loading indicator
 
----
+* Idle: static button, "Tap to start"
+* Recording: pulsing animation + audio waveform
+* Coach speaking: audio waveform
+* Processing: loading indicator
+
+***
 
 ## Teleprompter Mode
 
 The Teleprompter Panel is an optional overlay that shows the coach's question/prompt as large text on screen. Designed for:
-- Hands-free use (phone propped up, user talks while walking/commuting)
-- Users who prefer reading the question while formulating their answer
-- Accessibility (hearing coach audio might be difficult in noisy environments)
+
+* Hands-free use (phone propped up, user talks while walking/commuting)
+* Users who prefer reading the question while formulating their answer
+* Accessibility (hearing coach audio might be difficult in noisy environments)
 
 **Toggle:** Small button on Talk Screen. Opens as a panel overlay, semi-transparent.
 
@@ -118,21 +121,24 @@ The Teleprompter Panel is an optional overlay that shows the coach's question/pr
 └─────────────────────────────────────┘
 ```
 
----
+***
 
 ## How the Coach Works
 
 ### Context the Coach Has
-- Full career profile to date (XYZ bank, STARL bank, plans)
-- All previous session summaries
-- Active target (Real Plan + Ideal Profile)
-- Ideal Profile must-haves (knows what's still missing in coverage)
-- Gap Assessment state (knows which skills are weak)
+
+* Full career profile to date (XYZ bank, STARL bank, plans)
+* All previous session summaries
+* Active target (Real Plan + Ideal Profile)
+* Ideal Profile must-haves (knows what's still missing in coverage)
+* Gap Assessment state (knows which skills are weak)
 
 ### Coach Behavior
+
 The coach is **proactive and structured** — it has a plan. It doesn't wait for the user to know what to say.
 
 **Principles:**
+
 1. **Always have a goal for the session.** Coach starts with an intent (e.g., "Today I want to try to capture 2 more XYZ achievements from your DataFlow experience").
 2. **Ask one question at a time.** No overwhelming multi-part questions.
 3. **Drill down for specifics.** If user gives a vague answer ("We improved performance"), coach asks for the number ("What was the actual improvement? Any benchmarks?").
@@ -141,32 +147,36 @@ The coach is **proactive and structured** — it has a plan. It doesn't wait for
 6. **End with synthesis.** At end of session, briefly recaps what was captured.
 
 ### Topics the Coach Covers
-Rotates based on what the Career Profile needs most:
-- Work achievements (XYZ mining)
-- Behavioral stories (STARL development)
-- Career plans (calibration, horizon discussion)
-- Target role research (what does the user know about their target?)
-- Skill gaps (evidence gathering for weak areas)
-- Interview preparation (practice questions for upcoming interviews)
-- Market insights (what the user is seeing in their job search)
 
----
+Rotates based on what the Career Profile needs most:
+
+* Work achievements (XYZ mining)
+* Behavioral stories (STARL development)
+* Career plans (calibration, horizon discussion)
+* Target role research (what does the user know about their target?)
+* Skill gaps (evidence gathering for weak areas)
+* Interview preparation (practice questions for upcoming interviews)
+* Market insights (what the user is seeing in their job search)
+
+***
 
 ## Document Upload During Session
 
 > **Status: Open question** — UX not yet designed. See [Open Questions](../open-questions.md).
 
 Documents that can be shared with the coach:
-- User's current resume (coach can reference specific roles, help update language)
-- A job posting (coach can identify gaps, prep questions for that specific role)
-- A performance review (coach can help translate to XYZ/STARL)
+
+* User's current resume (coach can reference specific roles, help update language)
+* A job posting (coach can identify gaps, prep questions for that specific role)
+* A performance review (coach can help translate to XYZ/STARL)
 
 **Candidate UX patterns:**
-- A) User says "I want to talk about my resume" → coach asks "Can you share it?" → upload button appears
-- B) Persistent paper clip icon on Talk Screen → taps anytime to upload
-- C) Upload happens before session starts (in pre-session setup screen)
 
----
+* A) User says "I want to talk about my resume" → coach asks "Can you share it?" → upload button appears
+* B) Persistent paper clip icon on Talk Screen → taps anytime to upload
+* C) Upload happens before session starts (in pre-session setup screen)
+
+***
 
 ## Session Summary Screen
 
@@ -190,15 +200,15 @@ Shown after every session:
 └─────────────────────────────────────┘
 ```
 
----
+***
 
 ## Error & Edge Cases
 
-| Scenario | Handling |
-|---|---|
-| Microphone permission denied | Explain why needed, link to settings |
-| Network drops mid-session | Continue recording locally, sync when connection restores |
-| STT fails / low confidence | Coach asks user to repeat ("Could you say that again?") |
-| Session ends unexpectedly | Partial session saved, extracted items still synced |
-| Paywall limit reached mid-session | TBD — see [Open Questions](../open-questions.md) |
-| User is in a noisy environment | Coach detects poor audio quality, suggests moving to quieter place |
+| Scenario                          | Handling                                                           |
+| --------------------------------- | ------------------------------------------------------------------ |
+| Microphone permission denied      | Explain why needed, link to settings                               |
+| Network drops mid-session         | Continue recording locally, sync when connection restores          |
+| STT fails / low confidence        | Coach asks user to repeat ("Could you say that again?")            |
+| Session ends unexpectedly         | Partial session saved, extracted items still synced                |
+| Paywall limit reached mid-session | TBD — see [Open Questions](../open-questions.md)                   |
+| User is in a noisy environment    | Coach detects poor audio quality, suggests moving to quieter place |
